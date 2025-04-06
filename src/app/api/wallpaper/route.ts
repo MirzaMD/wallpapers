@@ -48,3 +48,4 @@ export async function DELETE(req:Request){
        
        return NextResponse.json({message:"deleted succesfully"}, { status: 202})
 }
+export const runtime = "nodejs";
