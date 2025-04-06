@@ -1,6 +1,6 @@
 "use client"
 import { z } from "zod"
-import { useState,useRef } from "react"
+import { useRef } from "react"
 import { FaUpload } from "react-icons/fa6"
 import { useRouter } from "next/navigation"
 import { useForm } from "react-hook-form"
@@ -15,8 +15,6 @@ const uploadSchema=z.object({
 })
 type TuploadSchema= z.infer<typeof uploadSchema>
 export default function AddItemsPage(){
-   const [ catg, setCatg ] = useState<string>("")
-   const [ by, setBy ] = useState<string>("Anonymous")
    const route=useRouter()
  const imgRef=useRef<HTMLInputElement>(null)   
 const { register, reset, handleSubmit, formState:{errors,isSubmitting},setValue} = useForm({
@@ -68,7 +66,7 @@ const { register, reset, handleSubmit, formState:{errors,isSubmitting},setValue}
      <div className="flex justify-center items-center mt-6 gap-x-2">
      <label htmlFor="dropdown"
      className="cursor-pointer text-lg sm:text-2xl font-[cursive] text-[whitesmoke]">Select the category:</label>
-     <select id="dropdown" {...register("category")} onChange={(e)=>setCatg(e.target.value)}
+     <select id="dropdown" {...register("category")}
      className="p-2 rounded-md outline-none focus:bg-[#a728a7dd] cursor-pointer
       bg-[#a728a751] sm:text-sm sm:text-md font-[cursive] focus:text-[whitesmoke]
       text-[#ffeaff] text-[0.5rem] w-[60px] sm:w-[100px]">
@@ -79,7 +77,7 @@ const { register, reset, handleSubmit, formState:{errors,isSubmitting},setValue}
      </div>
      <div className={`flex justify-center items-center mt-4 gap-x-2`}>
      <label className="text-lg sm:text-2xl font-[cursive] text-[whitesmoke]">Courtesy of:</label>
-     <input {...register("name")} onChange={(e)=>setBy(e.target.value)}
+     <input {...register("name")}
       type="text" placeholder="enter the your name"
      className="border-2 w-[50%] sm:w-[30%] rounded-lg border-[#a728a789] text-white"/>
      </div>

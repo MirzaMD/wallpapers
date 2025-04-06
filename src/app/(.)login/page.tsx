@@ -15,7 +15,7 @@ type TpasswordSchema=z.infer<typeof passwordSchema>
 export default function LoginPage(){
     const route=useRouter();
     const[ password , setPassword ] = useState<string>('')
-    const { register, handleSubmit, reset, formState:{errors,isSubmitting}}=useForm({
+    const { register, handleSubmit, reset, formState:{errors}}=useForm({
         resolver:zodResolver(passwordSchema)
     })
 

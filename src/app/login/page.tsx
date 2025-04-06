@@ -5,7 +5,6 @@ import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
-import { url } from "inspector"
 const passwordSchema=z.object({
     password:z.string().min(1,"enter the password")
           .refine((val)=>val.toLowerCase().trim()==="walls" || "del",{
@@ -16,7 +15,7 @@ type TpasswordSchema=z.infer<typeof passwordSchema>
 export default function LoginPage(){
     const route=useRouter();
     const[ password , setPassword ] = useState<string>('')
-    const { register, handleSubmit, reset, formState:{errors,isSubmitting}}=useForm({
+    const { register, handleSubmit, reset, formState:{errors}}=useForm({
         resolver:zodResolver(passwordSchema)
     })
 

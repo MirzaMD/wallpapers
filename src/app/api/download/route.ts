@@ -25,7 +25,7 @@ export async function GET(req: NextRequest) {
         "Content-Disposition": `attachment; filename="wallpaper.jpg"`,
       },
     });
-  } catch (err) {
+  } catch {
     return new Response("Something went wrong", { status: 500 });
   }
 }

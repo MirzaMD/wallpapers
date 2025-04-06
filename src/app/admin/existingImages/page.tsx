@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 type detailsType={
     _id:string,
-    photo:any,
+    photo:string,
     category:string,
     artist:string
   }
@@ -34,7 +34,7 @@ return (
    {details?.map((v)=>(
     <div key={v._id}
     className={`flex flex-col justify-center items-center cursor-pointer`}>
-    <Link href={v.photo}><img src={v.photo}
+    <Link href={v.photo}><img src={v.photo} alt="images"
     className={`h-[120px] sm:h-[200px] rounded-lg`} /></Link>
     <button onClick={()=>{removingItems(v._id)}}
     className={`bg-[#c60000] text-sm sm:text-md text-white font-bold rounded-lg cursor-pointer mt-2`}>
